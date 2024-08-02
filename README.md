@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# Quiz Aventure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Quiz Aventure est une application web de quiz dans l'univers de One Piece qui est un manga d'aventure Pirate, construite avec React pour le front-end et Express pour le back-end. Les questions du quiz sont stockées dans un fichier JSON et servies via une API Express. L'application permet aux utilisateurs de répondre à des questions, de voir leur score et de recommencer le quiz afin d'avoir le maximum de réponses correctes, il faut donc avoir un score de 24/24 pour réussir le quiz.
 
-## Available Scripts
+### Choix Technologiques
 
-In the project directory, you can run:
+#### Pourquoi React ?
 
-### `npm start`
+- **Composants Réutilisables** : Facilite la création de composants modulaires et maintenables.
+- **Gestion de l'État** : Simplifie la gestion de l'état de l'application avec des hooks comme `useState` et `useEffect`.
+- **Performances** : Optimise les mises à jour de l'interface utilisateur grâce au Virtual DOM.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Pourquoi Express.js ?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Simplicité et Légèreté** : Idéal pour créer rapidement des API RESTful.
+- **Flexibilité** : Permet une organisation claire et personnalisable des routes et middlewares.
+- **Compatibilité avec Node.js** : Bénéficie de l'écosystème riche de Node.js et de npm.
+## Fonctionnalités
 
-### `npm test`
+- **Affichage des questions** : Les questions sont affichées une par une avec 4 options de réponse.
+- **Calcul du score** : Le score est calculé en fonction des réponses correctes fournies par l'utilisateur.
+- **Navigation** : Les utilisateurs peuvent passer d'une question à l'autre après y avoir répondu, ils peuvent voir leur score en direct et savoir grâce à un overlay si la réponse est bonne ou mauvaise.
+- **Réinitialisation du quiz** : Possibilité de revenir au début du quiz après l'avoir terminé.
+- **Page d'accueil animée** : Une page d'accueil avec un design attractif et un bouton pour démarrer le quiz.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prérequis
 
-### `npm run build`
+Assurez-vous d'avoir installé les logiciels suivants sur votre machine :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clonez ce dépôt sur votre machine locale :
 
-### `npm run eject`
+    ```sh
+    git clone https://github.com/NathanManiezPro/NathanECF.git
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Accédez au dossier du projet :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```sh
+    cd quiz-aventure
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Installez les dépendances pour le front-end et le back-end :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```sh
+    cd quiz-aventure
+    npm install
+    cd ../quiz-backend
+    npm install
+    ```
 
-## Learn More
+## Configuration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Assurez-vous que le fichier `questions.json` dans le dossier `quiz-backend` contient les questions de votre quiz. Voici un exemple de structure :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+[
+    {
+        "question": "Quel est le capitaine du navire 'Thousand Sunny' ?",
+        "options": ["Roronoa Zoro", "Monkey D. Luffy", "Nami", "Usopp"],
+        "answer": "Monkey D. Luffy"
+    },
+    {
+        "question": "Quel est le rêve de Sanji ?",
+        "options": ["Devenir le Seigneur des Pirates", "Trouver All Blue", "Devenir le meilleur épéiste", "Trouver le One Piece"],
+        "answer": "Trouver All Blue"
+    }
+]
+```
 
-### Code Splitting
+### Démarrage du projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Démarrez le serveur Express :
+```sh
+cd quiz-backend
+node index.js
+```
+Le serveur sera disponible à l'adresse http://localhost:3001.
 
-### Analyzing the Bundle Size
+Démarrez l'application React :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+cd quiz-aventure
+npm start
+```
+L'application sera disponible à l'adresse http://localhost:3000.
 
-### Making a Progressive Web App
+### Structure du Projet : 
+- **quiz-aventure/** : Contient le code source du front-end React.
+- **src/** : Dossier principal des fichiers source.
+- **components/** : Contient les composants React.
+- **Home.js** : Composant pour la page d'accueil.
+- **Quiz.js**: Composant pour le quiz.
+- **App.js** : Composant principal de l'application.
+- **index.js** : Point d'entrée du front-end.
+- **App.css** : Fichier de styles globaux pour l'application.
+- **Quiz.css** : Fichier de styles spécifiques au quiz.
+- **Home.css** : Fichier de styles spécifiques à la page d'accueil.
+- **quiz-backend/** : Contient le code source du back-end Express.
+- **index.js** : Point d'entrée du serveur Express.
+- **questions.json** : Fichier contenant les questions du quiz.
+- **scores.json** : Fichier ne contenant rien au début mais contient ensuite les meilleures scores obtenu
+- **README.md** : Ce fichier.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Utilisation
+1. Accédez à l'application à l'adresse http://localhost:3000.
+2. Cliquez sur le bouton "Jouer au jeu" pour commencer le quiz.
+3. Répondez aux questions affichées.
+4. Tout au long du quiz, le score sera affiché.
+5. Cliquez sur "Revenir au début du jeu" pour recommencer le quiz.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Dépendances
+- **Front-end**
+1. *React*
+2. *Axios*
+- **Back-end**
+1. *Express*
+2. *Cors*
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Auteur
+Maniez Nathan
