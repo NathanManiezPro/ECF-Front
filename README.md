@@ -35,7 +35,8 @@ Assurez-vous d'avoir installé les logiciels suivants sur votre machine :
 1. Clonez ce dépôt sur votre machine locale :
 
     ```sh
-    git clone https://github.com/NathanManiezPro/NathanECF.git
+    git clone https://github.com/NathanManiezPro/ECF-Front.git
+    git clone https://github.com/NathanManiezPro/ECF-Back.git
     ```
 
 2. Accédez au dossier du projet :
